@@ -361,76 +361,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
 
-        /* Modal de lecture PDF */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1100;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: 10px;
-            width: 100%;
-            max-width: 900px;
-            max-height: 90vh;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            animation: modalFadeIn 0.3s ease;
-        }
-
-        .modal-header {
-            padding: 1rem 1.5rem;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .modal-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .modal-close:hover {
-            transform: rotate(90deg);
-        }
-
-        .modal-body {
-            padding: 0;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .pdf-viewer {
-            width: 100%;
-            height: 100%;
-            min-height: 500px;
-            border: none;
-            flex-grow: 1;
-        }
-
         /* Message aucun résultat */
         .no-results {
             text-align: center;
@@ -598,24 +528,9 @@
             .footer-content {
                 grid-template-columns: 1fr;
             }
-
-            .modal {
-                padding: 1rem;
-            }
         }
 
         /* Animations */
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -743,10 +658,10 @@
                             </div>
                         </div>
                         <div class="epreuve-actions">
-                           <button class="btn btn-primary lire-btn" data-epreuve="Mathématiques 2023"  data-pdf="PDF-LICENCE/LITTERATURE AFRICAINE ET BRITANIQUE SEMESTRE3 2020-21.pdf">
-                     <i class="fas fa-book-open"></i>
-                       Lire l'épreuve
-                </button>
+                            <a href="PDF-LICENCE/LITTERATURE AFRICAINE ET BRITANIQUE SEMESTRE3 2020-21.pdf" target="_blank" class="btn btn-primary">
+                                <i class="fas fa-book-open"></i>
+                                Lire l'épreuve
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -788,10 +703,10 @@
                             </div>
                         </div>
                         <div class="epreuve-actions">
-                            <button class="btn btn-primary lire-btn" data-epreuve="Civilisation Britannique - S2" data-pdf="https://www.africau.edu/images/default/sample.pdf">
+                            <a href="PDF-LICENCE/LITTERATURE AFRICAINE ET BRITANIQUE SEMESTRE3 2020-21.pdf" target="_blank" class="btn btn-primary">
                                 <i class="fas fa-book-open"></i>
                                 Lire l'épreuve
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -833,10 +748,10 @@
                             </div>
                         </div>
                         <div class="epreuve-actions">
-                            <button class="btn btn-primary lire-btn" data-epreuve="Grammaire Espagnole - S1" data-pdf="https://www.orimi.com/pdf-test.pdf">
+                            <a href="PDF-LICENCE/LITTERATURE AFRICAINE ET BRITANIQUE SEMESTRE3 2020-21.pdf" target="_blank" class="btn btn-primary">
                                 <i class="fas fa-book-open"></i>
                                 Lire l'épreuve
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -878,10 +793,10 @@
                             </div>
                         </div>
                         <div class="epreuve-actions">
-                            <button class="btn btn-primary lire-btn" data-epreuve="Littérature Hispanique - S3" data-pdf="https://www.clickdimensions.com/links/TestPDFfile.pdf">
+                            <a href="PDF-LICENCE/LITTERATURE AFRICAINE ET BRITANIQUE SEMESTRE3 2020-21.pdf" target="_blank" class="btn btn-primary">
                                 <i class="fas fa-book-open"></i>
                                 Lire l'épreuve
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -923,10 +838,10 @@
                             </div>
                         </div>
                         <div class="epreuve-actions">
-                            <button class="btn btn-primary lire-btn" data-epreuve="Théories Sociologiques - S2" data-pdf="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf">
+                            <a href="PDF-LICENCE/LITTERATURE AFRICAINE ET BRITANIQUE SEMESTRE3 2020-21.pdf" target="_blank" class="btn btn-primary">
                                 <i class="fas fa-book-open"></i>
                                 Lire l'épreuve
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -968,10 +883,10 @@
                             </div>
                         </div>
                         <div class="epreuve-actions">
-                            <button class="btn btn-primary lire-btn" data-epreuve="Méthodes Quantitatives - S4" data-pdf="https://www.africau.edu/images/default/sample.pdf">
+                            <a href="PDF-LICENCE/LITTERATURE AFRICAINE ET BRITANIQUE SEMESTRE3 2020-21.pdf" target="_blank" class="btn btn-primary">
                                 <i class="fas fa-book-open"></i>
                                 Lire l'épreuve
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1013,10 +928,10 @@
                             </div>
                         </div>
                         <div class="epreuve-actions">
-                            <button class="btn btn-primary lire-btn" data-epreuve="Géographie Physique - S1" data-pdf="https://www.orimi.com/pdf-test.pdf">
+                            <a href="PDF-LICENCE/LITTERATURE AFRICAINE ET BRITANIQUE SEMESTRE3 2020-21.pdf" target="_blank" class="btn btn-primary">
                                 <i class="fas fa-book-open"></i>
                                 Lire l'épreuve
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1058,32 +973,16 @@
                             </div>
                         </div>
                         <div class="epreuve-actions">
-                            <button class="btn btn-primary lire-btn" data-epreuve="Géographie Urbaine - S5" data-pdf="https://www.clickdimensions.com/links/TestPDFfile.pdf">
+                            <a href="PDF-LICENCE/LITTERATURE AFRICAINE ET BRITANIQUE SEMESTRE3 2020-21.pdf" target="_blank" class="btn btn-primary">
                                 <i class="fas fa-book-open"></i>
                                 Lire l'épreuve
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Modal de lecture PDF -->
-    <div class="modal" id="pdfModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-title" id="modalTitle">Lecture du PDF</div>
-                <button class="modal-close" id="modalClose">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- PDF Viewer -->
-                <iframe class="pdf-viewer" id="pdfViewer" src="" frameborder="0"></iframe>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer>
@@ -1181,42 +1080,6 @@
             filiereFilter.value = 'all';
             semestreFilter.value = 'all';
             filterEpreuves();
-        });
-
-        // Gestion du modal PDF
-        const modal = document.getElementById('pdfModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalClose = document.getElementById('modalClose');
-        const pdfViewer = document.getElementById('pdfViewer');
-        const lireBtns = document.querySelectorAll('.lire-btn');
-
-        // Ouvrir le modal avec le PDF correspondant
-        lireBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const epreuve = btn.getAttribute('data-epreuve');
-                const pdfUrl = btn.getAttribute('data-pdf');
-                
-                modalTitle.textContent = epreuve;
-                pdfViewer.src = pdfUrl;
-                modal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        // Fermer le modal
-        modalClose.addEventListener('click', () => {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            pdfViewer.src = ''; // Vide le PDF
-        });
-
-        // Fermer le modal en cliquant à l'extérieur
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                pdfViewer.src = ''; // Vide le PDF
-            }
         });
 
         // Animation au défilement pour les cartes
