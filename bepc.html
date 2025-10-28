@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEPC - BeninReussite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables CSS */
+        :root {
+            --primary: #2A6F97;
+            --secondary: #468FAF;
+            --accent: #61A5C2;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --success: #2A9D8F;
+            --warning: #E9C46A;
+            --danger: #E76F51;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header simplifié */
+        .simple-header {
+            background-color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: var(--light);
+            transform: translateX(-3px);
+        }
+
+        .page-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Hero Section BEPC */
+        .hero-bepc {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .hero-bepc::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+        }
+
+        .hero-bepc-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-bepc h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-bepc p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Filtres */
+        .filters-section {
+            background-color: white;
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border-radius: 10px;
+        }
+
+        .filters-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+
+        .filter-select {
+            padding: 0.7rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--dark);
+            min-width: 180px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(42, 111, 151, 0.2);
+        }
+
+        .reset-filters {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1.7rem;
+        }
+
+        .reset-filters:hover {
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transform: translateY(-2px);
+        }
+
+        /* Section des épreuves */
+        .epreuves-section {
+            padding: 2rem 0 5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        .epreuves-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .epreuve-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            transform: translateY(0);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .epreuve-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .epreuve-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .epreuve-icon {
+            font-size: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .epreuve-header-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .epreuve-header-content p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .epreuve-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .epreuve-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .epreuve-annee {
+            background-color: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .epreuve-pages {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .epreuve-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .epreuve-actions {
+            display: flex;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            font-size: 0.95rem;
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Modal de lecture PDF */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1100;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        .modal-header {
+            padding: 1rem 1.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 0;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            border: none;
+            flex-grow: 1;
+        }
+
+        .pdf-placeholder {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+            text-align: center;
+            background-color: var(--light);
+            flex-grow: 1;
+        }
+
+        .pdf-placeholder i {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .pdf-placeholder h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .pdf-placeholder p {
+            color: #666;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Message aucun résultat */
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            grid-column: 1 / -1;
+        }
+
+        .no-results i {
+            font-size: 4rem;
+            color: #ddd;
+            margin-bottom: 1.5rem;
+        }
+
+        .no-results h3 {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .no-results p {
+            color: #888;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: white;
+        }
+
+        .footer-section p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--warning);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-bepc h1 {
+                font-size: 2.2rem;
+            }
+            
+            .epreuves-container {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-bepc {
+                padding: 2rem 0;
+            }
+
+            .hero-bepc h1 {
+                font-size: 2rem;
+            }
+
+            .hero-bepc p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .filters-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-group {
+                width: 100%;
+            }
+
+            .filter-select {
+                width: 100%;
+            }
+
+            .reset-filters {
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-bepc h1 {
+                font-size: 1.8rem;
+            }
+            
+            .epreuves-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .modal {
+                padding: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .epreuve-card {
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .epreuve-card:nth-child(1) { animation-delay: 0.1s; }
+        .epreuve-card:nth-child(2) { animation-delay: 0.2s; }
+        .epreuve-card:nth-child(3) { animation-delay: 0.3s; }
+        .epreuve-card:nth-child(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Header simplifié -->
+    <div class="simple-header">
+        <div class="container header-content">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Retour à l'accueil
+            </a>
+            <div class="page-title">BEPC - Épreuves</div>
+        </div>
+    </div>
+
+    <!-- Hero Section BEPC -->
+    <section class="hero-bepc">
+        <div class="container hero-bepc-content">
+            <h1>Épreuves du BEPC</h1>
+            <p>Retrouvez toutes les épreuves du Brevet d'Études du Premier Cycle avec leurs corrigés pour une préparation optimale</p>
+        </div>
+    </section>
+
+    <!-- Filtres -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label class="filter-label">Filtrer par matière</label>
+                    <select class="filter-select" id="matiereFilter">
+                        <option value="all">Toutes les matières</option>
+                        <option value="mathematiques">Mathématiques</option>
+                        <option value="francais">Français</option>
+                        <option value="histoire-geo">Histoire-Géographie</option>
+                        <option value="sciences">Sciences Physiques</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Filtrer par année</label>
+                    <select class="filter-select" id="anneeFilter">
+                        <option value="all">Toutes les années</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                    </select>
+                </div>
+                
+                <button class="reset-filters" id="resetFilters">
+                    <i class="fas fa-redo"></i>
+                    Réinitialiser
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section des épreuves -->
+    <section class="epreuves-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Épreuves disponibles</h2>
+            </div>
+            
+            <div class="epreuves-container" id="epreuvesContainer">
+                <!-- Épreuve 1 -->
+                <div class="epreuve-card" data-matiere="mathematiques" data-annee="2023">
+                    <div class="epreuve-header">
+                        <div class="epreuve-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="epreuve-header-content">
+                            <h3>Mathématiques</h3>
+                            <p>Épreuve principale</p>
+                        </div>
+                    </div>
+                    <div class="epreuve-content">
+                        <div class="epreuve-info">
+                            <div class="epreuve-annee">2023</div>
+                            <div class="epreuve-pages">
+                                <i class="far fa-file"></i>
+                                <span>12 pages</span>
+                            </div>
+                        </div>
+                        <div class="epreuve-description">
+                            <p>Épreuve de mathématiques du BEPC 2023 avec exercices d'algèbre, de géométrie et de statistiques. Comprend des problèmes progressifs et un barème détaillé.</p>
+                        </div>
+                        <div class="epreuve-actions">
+                            <button class="btn btn-primary lire-btn" data-epreuve="Mathématiques 2023" data-pdf="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf">
+                                <i class="fas fa-book-open"></i>
+                                Lire l'épreuve
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Épreuve 2 -->
+                <div class="epreuve-card" data-matiere="francais" data-annee="2023">
+                    <div class="epreuve-header">
+                        <div class="epreuve-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="epreuve-header-content">
+                            <h3>Français</h3>
+                            <p>Composition et grammaire</p>
+                        </div>
+                    </div>
+                    <div class="epreuve-content">
+                        <div class="epreuve-info">
+                            <div class="epreuve-annee">2023</div>
+                            <div class="epreuve-pages">
+                                <i class="far fa-file"></i>
+                                <span>8 pages</span>
+                            </div>
+                        </div>
+                        <div class="epreuve-description">
+                            <p>Épreuve de français avec texte à analyser, questions de compréhension, exercices de grammaire et sujet de composition. Corrigé détaillé inclus.</p>
+                        </div>
+                        <div class="epreuve-actions">
+                            <button class="btn btn-primary lire-btn" data-epreuve="Français 2023" data-pdf="https://www.africau.edu/images/default/sample.pdf">
+                                <i class="fas fa-book-open"></i>
+                                Lire l'épreuve
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Épreuve 3 -->
+                <div class="epreuve-card" data-matiere="histoire-geo" data-annee="2022">
+                    <div class="epreuve-header">
+                        <div class="epreuve-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="epreuve-header-content">
+                            <h3>Histoire-Géographie</h3>
+                            <p>Épreuve écrite</p>
+                        </div>
+                    </div>
+                    <div class="epreuve-content">
+                        <div class="epreuve-info">
+                            <div class="epreuve-annee">2022</div>
+                            <div class="epreuve-pages">
+                                <i class="far fa-file"></i>
+                                <span>10 pages</span>
+                            </div>
+                        </div>
+                        <div class="epreuve-description">
+                            <p>Épreuve d'histoire-géographie couvrant les programmes officiels. Comprend des questions de connaissances, d'analyse de documents et une carte à compléter.</p>
+                        </div>
+                        <div class="epreuve-actions">
+                            <button class="btn btn-primary lire-btn" data-epreuve="Histoire-Géographie 2022" data-pdf="https://www.orimi.com/pdf-test.pdf">
+                                <i class="fas fa-book-open"></i>
+                                Lire l'épreuve
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Épreuve 4 -->
+                <div class="epreuve-card" data-matiere="sciences" data-annee="2021">
+                    <div class="epreuve-header">
+                        <div class="epreuve-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="epreuve-header-content">
+                            <h3>Sciences Physiques</h3>
+                            <p>Physique et Chimie</p>
+                        </div>
+                    </div>
+                    <div class="epreuve-content">
+                        <div class="epreuve-info">
+                            <div class="epreuve-annee">2021</div>
+                            <div class="epreuve-pages">
+                                <i class="far fa-file"></i>
+                                <span>9 pages</span>
+                            </div>
+                        </div>
+                        <div class="epreuve-description">
+                            <p>Épreuve de sciences physiques avec exercices de mécanique, électricité, chimie et transformations chimiques. Comprend des schémas et expériences à analyser.</p>
+                        </div>
+                        <div class="epreuve-actions">
+                            <button class="btn btn-primary lire-btn" data-epreuve="Sciences Physiques 2021" data-pdf="https://www.clickdimensions.com/links/TestPDFfile.pdf">
+                                <i class="fas fa-book-open"></i>
+                                Lire l'épreuve
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de lecture PDF -->
+    <div class="modal" id="pdfModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">Lecture du PDF</div>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- PDF Viewer -->
+                <iframe class="pdf-viewer" id="pdfViewer" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>À propos</h3>
+                    <p>BeninReussite est une plateforme dédiée à la préparation des examens pour tous les niveaux d'études au Bénin.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#niveaux">BEPC</a></li>
+                        <li><a href="index.html#niveaux">BAC</a></li>
+                        <li><a href="index.html#niveaux">Licence</a></li>
+                        <li><a href="index.html#informations">Informations</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> contact@beninreussite.bj</p>
+                    <p><i class="fas fa-phone"></i> +229 12 34 56 78</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 BeninReussite. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion des filtres
+        const matiereFilter = document.getElementById('matiereFilter');
+        const anneeFilter = document.getElementById('anneeFilter');
+        const resetFilters = document.getElementById('resetFilters');
+        const epreuvesContainer = document.getElementById('epreuvesContainer');
+        const epreuveCards = document.querySelectorAll('.epreuve-card');
+
+        // Fonction de filtrage
+        function filterEpreuves() {
+            const selectedMatiere = matiereFilter.value;
+            const selectedAnnee = anneeFilter.value;
+            
+            let visibleCount = 0;
+            
+            epreuveCards.forEach(card => {
+                const cardMatiere = card.getAttribute('data-matiere');
+                const cardAnnee = card.getAttribute('data-annee');
+                
+                const matiereMatch = selectedMatiere === 'all' || cardMatiere === selectedMatiere;
+                const anneeMatch = selectedAnnee === 'all' || cardAnnee === selectedAnnee;
+                
+                if (matiereMatch && anneeMatch) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Afficher un message si aucun résultat
+            const existingNoResults = document.querySelector('.no-results');
+            if (existingNoResults) {
+                existingNoResults.remove();
+            }
+            
+            if (visibleCount === 0) {
+                const noResults = document.createElement('div');
+                noResults.className = 'no-results';
+                noResults.innerHTML = `
+                    <i class="fas fa-search"></i>
+                    <h3>Aucune épreuve trouvée</h3>
+                    <p>Aucune épreuve ne correspond à vos critères de filtrage. Essayez de modifier vos filtres.</p>
+                `;
+                epreuvesContainer.appendChild(noResults);
+            }
+        }
+
+        // Événements de filtrage
+        matiereFilter.addEventListener('change', filterEpreuves);
+        anneeFilter.addEventListener('change', filterEpreuves);
+
+        // Réinitialiser les filtres
+        resetFilters.addEventListener('click', () => {
+            matiereFilter.value = 'all';
+            anneeFilter.value = 'all';
+            filterEpreuves();
+        });
+
+        // Gestion du modal PDF
+        const modal = document.getElementById('pdfModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalClose = document.getElementById('modalClose');
+        const pdfViewer = document.getElementById('pdfViewer');
+        const lireBtns = document.querySelectorAll('.lire-btn');
+
+        // Ouvrir le modal avec le PDF correspondant
+        lireBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const epreuve = btn.getAttribute('data-epreuve');
+                const pdfUrl = btn.getAttribute('data-pdf');
+                
+                modalTitle.textContent = epreuve;
+                pdfViewer.src = pdfUrl;
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Fermer le modal
+        modalClose.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            pdfViewer.src = ''; // Vide le PDF
+        });
+
+        // Fermer le modal en cliquant à l'extérieur
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                pdfViewer.src = ''; // Vide le PDF
+            }
+        });
+
+        // Animation au défilement pour les cartes
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        epreuveCards.forEach(card => {
+            card.style.animationPlayState = 'paused';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
