@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Licence - BeninReussite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Variables CSS */
+        :root {
+            --primary: #2A6F97;
+            --secondary: #468FAF;
+            --accent: #61A5C2;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --success: #2A9D8F;
+            --warning: #E9C46A;
+            --danger: #E76F51;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        /* Reset et styles de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header simplifié */
+        .simple-header {
+            background-color: white;
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: var(--light);
+            transform: translateX(-3px);
+        }
+
+        .page-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Hero Section Licence */
+        .hero-licence {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .hero-licence::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+        }
+
+        .hero-licence-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-licence h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-licence p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Filtres */
+        .filters-section {
+            background-color: white;
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border-radius: 10px;
+        }
+
+        .filters-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+
+        .filter-select {
+            padding: 0.7rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--dark);
+            min-width: 200px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(42, 111, 151, 0.2);
+        }
+
+        .reset-filters {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1.7rem;
+        }
+
+        .reset-filters:hover {
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transform: translateY(-2px);
+        }
+
+        /* Section des épreuves */
+        .epreuves-section {
+            padding: 2rem 0 5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        .epreuves-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .epreuve-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            transform: translateY(0);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .epreuve-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .epreuve-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .epreuve-icon {
+            font-size: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .epreuve-header-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .epreuve-header-content p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .epreuve-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .epreuve-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .epreuve-filiere {
+            background-color: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .epreuve-semestre {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            font-size: 0.9rem;
+            background-color: #f8f9fa;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .epreuve-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .epreuve-details {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .detail-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .detail-value {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .epreuve-actions {
+            display: flex;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            font-size: 0.95rem;
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Modal de lecture PDF */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1100;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        .modal-header {
+            padding: 1rem 1.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 0;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 100%;
+            min-height: 500px;
+            border: none;
+            flex-grow: 1;
+        }
+
+        /* Message aucun résultat */
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            grid-column: 1 / -1;
+        }
+
+        .no-results i {
+            font-size: 4rem;
+            color: #ddd;
+            margin-bottom: 1.5rem;
+        }
+
+        .no-results h3 {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .no-results p {
+            color: #888;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: white;
+        }
+
+        .footer-section p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--warning);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: white;
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-licence h1 {
+                font-size: 2.2rem;
+            }
+            
+            .epreuves-container {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-licence {
+                padding: 2rem 0;
+            }
+
+            .hero-licence h1 {
+                font-size: 2rem;
+            }
+
+            .hero-licence p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .filters-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-group {
+                width: 100%;
+            }
+
+            .filter-select {
+                width: 100%;
+            }
+
+            .reset-filters {
+                width: 100%;
+                margin-top: 0.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-licence h1 {
+                font-size: 1.8rem;
+            }
+            
+            .epreuves-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .modal {
+                padding: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .epreuve-card {
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .epreuve-card:nth-child(1) { animation-delay: 0.1s; }
+        .epreuve-card:nth-child(2) { animation-delay: 0.2s; }
+        .epreuve-card:nth-child(3) { animation-delay: 0.3s; }
+        .epreuve-card:nth-child(4) { animation-delay: 0.4s; }
+        .epreuve-card:nth-child(5) { animation-delay: 0.5s; }
+        .epreuve-card:nth-child(6) { animation-delay: 0.6s; }
+        .epreuve-card:nth-child(7) { animation-delay: 0.7s; }
+        .epreuve-card:nth-child(8) { animation-delay: 0.8s; }
+    </style>
+</head>
+<body>
+    <!-- Header simplifié -->
+    <div class="simple-header">
+        <div class="container header-content">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Retour à l'accueil
+            </a>
+            <div class="page-title">Licence - Épreuves</div>
+        </div>
+    </div>
+
+    <!-- Hero Section Licence -->
+    <section class="hero-licence">
+        <div class="container hero-licence-content">
+            <h1>Épreuves de Licence</h1>
+            <p>Retrouvez toutes les épreuves universitaires de Licence avec leurs corrigés pour chaque filière et semestre</p>
+        </div>
+    </section>
+
+    <!-- Filtres -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label class="filter-label">Filtrer par filière</label>
+                    <select class="filter-select" id="filiereFilter">
+                        <option value="all">Toutes les filières</option>
+                        <option value="anglais">Anglais</option>
+                        <option value="espagnol">Espagnol</option>
+                        <option value="sociologie">Sociologie</option>
+                        <option value="geographie">Géographie</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">Filtrer par semestre</label>
+                    <select class="filter-select" id="semestreFilter">
+                        <option value="all">Tous les semestres</option>
+                        <option value="semestre1">Semestre 1</option>
+                        <option value="semestre2">Semestre 2</option>
+                        <option value="semestre3">Semestre 3</option>
+                        <option value="semestre4">Semestre 4</option>
+                        <option value="semestre5">Semestre 5</option>
+                        <option value="semestre6">Semestre 6</option>
+                    </select>
+                </div>
+                
+                <button class="reset-filters" id="resetFilters">
+                    <i class="fas fa-redo"></i>
+                    Réinitialiser
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section des épreuves -->
+    <section class="epreuves-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Épreuves disponibles</h2>
+            </div>
+            
+            <div class="epreuves-container" id="epreuvesContainer">
+                <!-- Épreuve 1 - Anglais S1 -->
+                <div class="epreuve-card" data-filiere="anglais" data-semestre="semestre1">
+                    <div class="epreuve-header">
+                        <div class="epreuve-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="epreuve-header-content">
+                            <h3>Linguistique Anglaise</h3>
+                            <p>Introduction à la phonétique</p>
+                        </div>
+                    </div>
+                    <div class="epreuve-content">
+                        <div class="epreuve-info">
+                            <div class="epreuve-filiere">Anglais</div>
+                            <div class="epreuve-semestre">
+                                <i class="fas fa-calendar-alt"></i>
+                                Semestre 1
+                            </div>
+                        </div>
+                        <div class="epreuve-description">
+                            <p>Épreuve de linguistique anglaise portant sur la phonétique et la phonologie. Comprend l'analyse phonétique et les règles de prononciation.</p>
+                        </div>
+                        <div class="epreuve-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Crédits:</span>
+                                <span class="detail-value">4 ECTS</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Type:</span>
+                                <span class="detail-value">Examen écrit</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Durée:</span>
+                                <span class="detail-value">2 heures</span>
+                            </div>
+                        </div>
+                        <div class="epreuve-actions">
+                            <button class="btn btn-primary lire-btn" data-epreuve="Linguistique Anglaise - S1" data-pdf="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf">
+                                <i class="fas fa-book-open"></i>
+                                Lire l'épreuve
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Épreuve 2 - Anglais S2 -->
+                <div class="epreuve-card" data-filiere="anglais" data-semestre="semestre2">
+                    <div class="epreuve-header">
+                        <div class="epreuve-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="epreuve-header-content">
+                            <h3>Civilisation Britannique</h3>
+                            <p>Histoire et institutions</p>
+                        </div>
+                    </div>
+                    <div class="epreuve-content">
+                        <div class="epreuve-info">
+                            <div class="epreuve-filiere">Anglais</div>
+                            <div class="epreuve-semestre">
+                                <i class="fas fa-calendar-alt"></i>
+                                Semestre 2
+                            </div>
+                        </div>
+                        <div class="epreuve-description">
+                            <p>Épreuve sur la civilisation britannique couvrant l'histoire, les institutions politiques et la société contemporaine du Royaume-Uni.</p>
+                        </div>
+                        <div class="epreuve-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Crédits:</span>
+                                <span class="detail-value">3 ECTS</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Type:</span>
+                                <span class="detail-value">Dissertation</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Durée:</span>
+                                <span class="detail-value">3 heures</span>
+                            </div>
+                        </div>
+                        <div class="epreuve-actions">
+                            <button class="btn btn-primary lire-btn" data-epreuve="Civilisation Britannique - S2" data-pdf="https://www.africau.edu/images/default/sample.pdf">
+                                <i class="fas fa-book-open"></i>
+                                Lire l'épreuve
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Épreuve 3 - Espagnol S1 -->
+                <div class="epreuve-card" data-filiere="espagnol" data-semestre="semestre1">
+                    <div class="epreuve-header">
+                        <div class="epreuve-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="epreuve-header-content">
+                            <h3>Grammaire Espagnole</h3>
+                            <p>Fondamentaux linguistiques</p>
+                        </div>
+                    </div>
+                    <div class="epreuve-content">
+                        <div class="epreuve-info">
+                            <div class="epreuve-filiere">Espagnol</div>
+                            <div class="epreuve-semestre">
+                                <i class="fas fa-calendar-alt"></i>
+                                Semestre 1
+                            </div>
+                        </div>
+                        <div class="epreuve-description">
+                            <p>Épreuve de grammaire espagnole portant sur les structures fondamentales, la conjugaison et les particularités syntaxiques de la langue.</p>
+                        </div>
+                        <div class="epreuve-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Crédits:</span>
+                                <span class="detail-value">4 ECTS</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Type:</span>
+                                <span class="detail-value">Examen écrit</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Durée:</span>
+                                <span class="detail-value">2 heures</span>
+                            </div>
+                        </div>
+                        <div class="epreuve-actions">
+                            <button class="btn btn-primary lire-btn" data-epreuve="Grammaire Espagnole - S1" data-pdf="https://www.orimi.com/pdf-test.pdf">
+                                <i class="fas fa-book-open"></i>
+                                Lire l'épreuve
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Épreuve 4 - Espagnol S3 -->
+                <div class="epreuve-card" data-filiere="espagnol" data-semestre="semestre3">
+                    <div class="epreuve-header">
+                        <div class="epreuve-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="epreuve-header-content">
+                            <h3>Littérature Hispanique</h3>
+                            <p>Siècle d'Or espagnol</p>
+                        </div>
+                    </div>
+                    <div class="epreuve-content">
+                        <div class="epreuve-info">
+                            <div class="epreuve-filiere">Espagnol</div>
+                            <div class="epreuve-semestre">
+                                <i class="fas fa-calendar-alt"></i>
+                                Semestre 3
+                            </div>
+                        </div>
+                        <div class="epreuve-description">
+                            <p>Épreuve de littérature hispanique focalisée sur le Siècle d'Or espagnol, avec analyse d'œuvres de Cervantes, Lope de Vega et Calderón.</p>
+                        </div>
+                        <div class="epreuve-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Crédits:</span>
+                                <span class="detail-value">5 ECTS</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Type:</span>
+                                <span class="detail-value">Commentaire composé</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Durée:</span>
+                                <span class="detail-value">4 heures</span>
+                            </div>
+                        </div>
+                        <div class="epreuve-actions">
+                            <button class="btn btn-primary lire-btn" data-epreuve="Littérature Hispanique - S3" data-pdf="https://www.clickdimensions.com/links/TestPDFfile.pdf">
+                                <i class="fas fa-book-open"></i>
+                                Lire l'épreuve
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Épreuve 5 - Sociologie S2 -->
+                <div class="epreuve-card" data-filiere="sociologie" data-semestre="semestre2">
+                    <div class="epreuve-header">
+                        <div class="epreuve-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="epreuve-header-content">
+                            <h3>Théories Sociologiques</h3>
+                            <p>Fondateurs de la discipline</p>
+                        </div>
+                    </div>
+                    <div class="epreuve-content">
+                        <div class="epreuve-info">
+                            <div class="epreuve-filiere">Sociologie</div>
+                            <div class="epreuve-semestre">
+                                <i class="fas fa-calendar-alt"></i>
+                                Semestre 2
+                            </div>
+                        </div>
+                        <div class="epreuve-description">
+                            <p>Épreuve sur les théories sociologiques classiques : Durkheim, Weber, Marx. Analyse des concepts fondamentaux et de leur actualité.</p>
+                        </div>
+                        <div class="epreuve-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Crédits:</span>
+                                <span class="detail-value">6 ECTS</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Type:</span>
+                                <span class="detail-value">Dissertation</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Durée:</span>
+                                <span class="detail-value">3 heures</span>
+                            </div>
+                        </div>
+                        <div class="epreuve-actions">
+                            <button class="btn btn-primary lire-btn" data-epreuve="Théories Sociologiques - S2" data-pdf="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf">
+                                <i class="fas fa-book-open"></i>
+                                Lire l'épreuve
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Épreuve 6 - Sociologie S4 -->
+                <div class="epreuve-card" data-filiere="sociologie" data-semestre="semestre4">
+                    <div class="epreuve-header">
+                        <div class="epreuve-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="epreuve-header-content">
+                            <h3>Méthodes Quantitatives</h3>
+                            <p>Enquêtes et statistiques</p>
+                        </div>
+                    </div>
+                    <div class="epreuve-content">
+                        <div class="epreuve-info">
+                            <div class="epreuve-filiere">Sociologie</div>
+                            <div class="epreuve-semestre">
+                                <i class="fas fa-calendar-alt"></i>
+                                Semestre 4
+                            </div>
+                        </div>
+                        <div class="epreuve-description">
+                            <p>Épreuve de méthodes quantitatives appliquées à la sociologie : construction de questionnaires, analyse statistique et interprétation des données.</p>
+                        </div>
+                        <div class="epreuve-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Crédits:</span>
+                                <span class="detail-value">5 ECTS</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Type:</span>
+                                <span class="detail-value">Étude de cas</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Durée:</span>
+                                <span class="detail-value">3 heures</span>
+                            </div>
+                        </div>
+                        <div class="epreuve-actions">
+                            <button class="btn btn-primary lire-btn" data-epreuve="Méthodes Quantitatives - S4" data-pdf="https://www.africau.edu/images/default/sample.pdf">
+                                <i class="fas fa-book-open"></i>
+                                Lire l'épreuve
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Épreuve 7 - Géographie S1 -->
+                <div class="epreuve-card" data-filiere="geographie" data-semestre="semestre1">
+                    <div class="epreuve-header">
+                        <div class="epreuve-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="epreuve-header-content">
+                            <h3>Géographie Physique</h3>
+                            <p>Climatologie et géomorphologie</p>
+                        </div>
+                    </div>
+                    <div class="epreuve-content">
+                        <div class="epreuve-info">
+                            <div class="epreuve-filiere">Géographie</div>
+                            <div class="epreuve-semestre">
+                                <i class="fas fa-calendar-alt"></i>
+                                Semestre 1
+                            </div>
+                        </div>
+                        <div class="epreuve-description">
+                            <p>Épreuve de géographie physique abordant les grands systèmes climatiques, la géomorphologie et les processus naturels qui façonnent les paysages.</p>
+                        </div>
+                        <div class="epreuve-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Crédits:</span>
+                                <span class="detail-value">4 ECTS</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Type:</span>
+                                <span class="detail-value">Examen écrit</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Durée:</span>
+                                <span class="detail-value">2 heures</span>
+                            </div>
+                        </div>
+                        <div class="epreuve-actions">
+                            <button class="btn btn-primary lire-btn" data-epreuve="Géographie Physique - S1" data-pdf="https://www.orimi.com/pdf-test.pdf">
+                                <i class="fas fa-book-open"></i>
+                                Lire l'épreuve
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Épreuve 8 - Géographie S5 -->
+                <div class="epreuve-card" data-filiere="geographie" data-semestre="semestre5">
+                    <div class="epreuve-header">
+                        <div class="epreuve-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="epreuve-header-content">
+                            <h3>Géographie Urbaine</h3>
+                            <p>Dynamiques des villes africaines</p>
+                        </div>
+                    </div>
+                    <div class="epreuve-content">
+                        <div class="epreuve-info">
+                            <div class="epreuve-filiere">Géographie</div>
+                            <div class="epreuve-semestre">
+                                <i class="fas fa-calendar-alt"></i>
+                                Semestre 5
+                            </div>
+                        </div>
+                        <div class="epreuve-description">
+                            <p>Épreuve de géographie urbaine analysant les spécificités des villes africaines : croissance, aménagement, enjeux sociaux et environnementaux.</p>
+                        </div>
+                        <div class="epreuve-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Crédits:</span>
+                                <span class="detail-value">6 ECTS</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Type:</span>
+                                <span class="detail-value">Mémoire</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Durée:</span>
+                                <span class="detail-value">Projet semestriel</span>
+                            </div>
+                        </div>
+                        <div class="epreuve-actions">
+                            <button class="btn btn-primary lire-btn" data-epreuve="Géographie Urbaine - S5" data-pdf="https://www.clickdimensions.com/links/TestPDFfile.pdf">
+                                <i class="fas fa-book-open"></i>
+                                Lire l'épreuve
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de lecture PDF -->
+    <div class="modal" id="pdfModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">Lecture du PDF</div>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- PDF Viewer -->
+                <iframe class="pdf-viewer" id="pdfViewer" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>À propos</h3>
+                    <p>BeninReussite est une plateforme dédiée à la préparation des examens pour tous les niveaux d'études au Bénin.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Liens rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#niveaux">BEPC</a></li>
+                        <li><a href="index.html#niveaux">BAC</a></li>
+                        <li><a href="index.html#niveaux">Licence</a></li>
+                        <li><a href="index.html#informations">Informations</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> contact@beninreussite.bj</p>
+                    <p><i class="fas fa-phone"></i> +229 12 34 56 78</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 BeninReussite. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion des filtres
+        const filiereFilter = document.getElementById('filiereFilter');
+        const semestreFilter = document.getElementById('semestreFilter');
+        const resetFilters = document.getElementById('resetFilters');
+        const epreuvesContainer = document.getElementById('epreuvesContainer');
+        const epreuveCards = document.querySelectorAll('.epreuve-card');
+
+        // Fonction de filtrage
+        function filterEpreuves() {
+            const selectedFiliere = filiereFilter.value;
+            const selectedSemestre = semestreFilter.value;
+            
+            let visibleCount = 0;
+            
+            epreuveCards.forEach(card => {
+                const cardFiliere = card.getAttribute('data-filiere');
+                const cardSemestre = card.getAttribute('data-semestre');
+                
+                const filiereMatch = selectedFiliere === 'all' || cardFiliere === selectedFiliere;
+                const semestreMatch = selectedSemestre === 'all' || cardSemestre === selectedSemestre;
+                
+                if (filiereMatch && semestreMatch) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            // Afficher un message si aucun résultat
+            const existingNoResults = document.querySelector('.no-results');
+            if (existingNoResults) {
+                existingNoResults.remove();
+            }
+            
+            if (visibleCount === 0) {
+                const noResults = document.createElement('div');
+                noResults.className = 'no-results';
+                noResults.innerHTML = `
+                    <i class="fas fa-search"></i>
+                    <h3>Aucune épreuve trouvée</h3>
+                    <p>Aucune épreuve ne correspond à vos critères de filtrage. Essayez de modifier vos filtres.</p>
+                `;
+                epreuvesContainer.appendChild(noResults);
+            }
+        }
+
+        // Événements de filtrage
+        filiereFilter.addEventListener('change', filterEpreuves);
+        semestreFilter.addEventListener('change', filterEpreuves);
+
+        // Réinitialiser les filtres
+        resetFilters.addEventListener('click', () => {
+            filiereFilter.value = 'all';
+            semestreFilter.value = 'all';
+            filterEpreuves();
+        });
+
+        // Gestion du modal PDF
+        const modal = document.getElementById('pdfModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalClose = document.getElementById('modalClose');
+        const pdfViewer = document.getElementById('pdfViewer');
+        const lireBtns = document.querySelectorAll('.lire-btn');
+
+        // Ouvrir le modal avec le PDF correspondant
+        lireBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const epreuve = btn.getAttribute('data-epreuve');
+                const pdfUrl = btn.getAttribute('data-pdf');
+                
+                modalTitle.textContent = epreuve;
+                pdfViewer.src = pdfUrl;
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Fermer le modal
+        modalClose.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            pdfViewer.src = ''; // Vide le PDF
+        });
+
+        // Fermer le modal en cliquant à l'extérieur
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                pdfViewer.src = ''; // Vide le PDF
+            }
+        });
+
+        // Animation au défilement pour les cartes
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        epreuveCards.forEach(card => {
+            card.style.animationPlayState = 'paused';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
